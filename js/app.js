@@ -16,39 +16,51 @@
     // Global variables
     const navbar = document.getElementById('navbar__list');
 
-    // For loop constructor
+    // For loop constructor for HTML elements
     for (let i = 1; i < 7; i++) {
         // Create Section Element
-        const textToAdd =
-            `<div class='landing__container'>
-            <h2>Section ${i}</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
-            <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-            </div>`;
-        const sectionID = document.getElementById('s' + i);
-        sectionID.insertAdjacentHTML('beforeend', textToAdd);
+        document.getElementById('s' + i).innerHTML =
+            `<div class='landing__container id="div${i}'>
+        <h2>Section ${i}</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
+        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
+        </div>`;
 
         // Create Li elements, onclick jump to section
-        const liElements = `<li><a href="#s${i}">Section ${i}</a></li>`;
+        const liElements = `<li><a id="anchor${i}">Section ${i}</a></li>`;
         navbar.insertAdjacentHTML('beforeend', liElements);
+
+        // onclcick smooth scroll
+        document.getElementById(`anchor${i}`).addEventListener('click', function () {
+            const elementToScrollTo = document.getElementById(`s${i}`)
+            elementToScrollTo.scrollIntoView({ block: 'start', behavior: 'smooth' })
+        });
     }
 
+    // // returns the number of pixels that the document is currently scrolled vertically.
+    // var scrollPosition = window.scrollY;
+    // var activeSection = document.getElementsByClassName('section')[0];
 
-    function onScroll(event) {
-        var sections = document.querySelectorAll('li a');
-        var scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    // window.addEventListener('scroll', function() {
 
-        for (var i = 0; i < sections.length; i++) {
-            var currLink = sections[i];
-            var val = currLink.getAttribute('href');
-            var refElement = document.querySelector(val);
-            if (refElement.offsetTop <= scrollPos && (refElement.offsetTop + refElement.offsetHeight > scrollPos)) {
-                document.querySelector('li a').classList.remove('active');
-                currLink.classList.add('active');
-            } else {
-                currLink.classList.remove('active');
-            }
-        }
-    };
-    window.document.addEventListener('scroll', onScroll);
+    // scrollPosition = window.scrollY;
+
+    // if (scrollPosition = 442) {
+    //     activeSection.classList.add('your-active-class');
+    // } else {
+    //     activeSection.classList.remove('your-active-class');
+    // }
+    // });
+
+    // window.addEventListener("scroll", function (event) {
+    //     var scroll = this.scrollY;
+    //     console.log(scroll)
+    // });
+
+
+
 })();
+
+// TODO:
+// *optimize the functionality
+// *comment code 2046, 2785, 3595, 4383
