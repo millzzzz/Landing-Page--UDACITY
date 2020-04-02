@@ -37,30 +37,4 @@
         });
     }
 
-    // // returns the number of pixels that the document is currently scrolled vertically.
-    // var scrollPosition = window.scrollY;
-    // var activeSection = document.getElementsByClassName('section')[0];
-
-    // window.addEventListener('scroll', function() {
-
-    // scrollPosition = window.scrollY;
-
-    // if (scrollPosition = 442) {
-    //     activeSection.classList.add('your-active-class');
-    // } else {
-    //     activeSection.classList.remove('your-active-class');
-    // }
-    // });
-
-    // window.addEventListener("scroll", function (event) {
-    //     var scroll = this.scrollY;
-    //     console.log(scroll)
-    // });
-
-
-
 })();
-
-// TODO:
-// *optimize the functionality
-// *comment code 2046, 2785, 3595, 4383
