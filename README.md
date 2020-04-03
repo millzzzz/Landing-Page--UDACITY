@@ -7,3 +7,5 @@ on scroll highlighted menu items
 html elements dynamically written through js
 
 This landing page serves only educational purpose.
+
+Project can be found on this link: https://senik456.github.io/Landing-Page--UDACITY/
